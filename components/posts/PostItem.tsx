@@ -18,7 +18,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
   const loginModal = useLoginModal();
 
   const { data: currentUser } = useCurrentUser();
-  const { hasLiked, toggleLike } = useLike({ postId: data.id, userId});
+  const { hasLiked, toggleLike } = useLike({ postId: data.id, userId });
 
   const goToUser = useCallback((ev: any) => {
     ev.stopPropagation();
@@ -50,7 +50,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
   }, [data.createdAt])
 
   return (
-    <div 
+    <div
       onClick={goToPost}
       className="
         border-b-[1px] 
@@ -61,11 +61,13 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
         transition
       ">
       <div className="flex flex-row items-start gap-3">
-        <Avatar userId={data.user.id} />
         <div>
-          <div className="flex flex-row items-center gap-2">
-            <p 
-              onClick={goToUser} 
+          <Avatar userId={data.user.id} />
+        </div>
+        <div>
+          <div className="flex flex-col items-start gap-2">
+            <p
+              onClick={goToUser}
               className="
                 text-white 
                 font-semibold 
@@ -74,26 +76,28 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
             ">
               {data.user.name}
             </p>
-            <span 
-              onClick={goToUser} 
-              className="
-                text-neutral-500
+            <div className='flex gap-4'>
+              <span
+                onClick={goToUser}
+                className="
+                text-neutral-400
                 cursor-pointer
                 hover:underline
                 hidden
                 md:block
             ">
-              @{data.user.username}
-            </span>
-            <span className="text-neutral-500 text-sm">
-              {createdAt}
-            </span>
+                @{data.user.username}
+              </span>
+              <span className="text-neutral-400 text-sm">
+                {createdAt}
+              </span>
+            </div>
           </div>
-          <div className="text-white mt-1">
+          <div className="text-white  w-full h-full mt-1">
             {data.body}
           </div>
           <div className="flex flex-row items-center mt-3 gap-10">
-            <div 
+            <div
               className="
                 flex 
                 flex-row 

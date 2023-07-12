@@ -26,7 +26,7 @@ const CommentItem: React.FC<CommentItemProps> = ({ data = {} }) => {
   }, [data.createdAt])
 
   return (
-    <div 
+    <div
       className="
         border-b-[1px] 
         border-neutral-800 
@@ -39,8 +39,8 @@ const CommentItem: React.FC<CommentItemProps> = ({ data = {} }) => {
         <Avatar userId={data.user.id} />
         <div>
           <div className="flex flex-row items-center gap-2">
-            <p 
-              onClick={goToUser} 
+            <p
+              onClick={goToUser}
               className="
                 text-white 
                 font-semibold 
@@ -49,8 +49,8 @@ const CommentItem: React.FC<CommentItemProps> = ({ data = {} }) => {
             ">
               {data.user.name}
             </p>
-            <span 
-              onClick={goToUser} 
+            <span
+              onClick={goToUser}
               className="
                 text-neutral-500
                 cursor-pointer
